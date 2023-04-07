@@ -1,15 +1,16 @@
 // types.ts
-import axios from "axios";
-
+import type {InternalAxiosRequestConfig, AxiosResponse} from 'axios';
 
 // 请求拦截
 export interface RequestInterceptor {
-    requestInterceptor?(value: axios.AxiosRequestConfig): (Promise<axios.InternalAxiosRequestConfig> | axios.AxiosRequestConfig )
-    requestInterceptorCatch?(err: any) : any
+    requestInterceptor?(value: InternalAxiosRequestConfig): (Promise<InternalAxiosRequestConfig> | InternalAxiosRequestConfig)
+
+    requestInterceptorCatch?(err: any): any
 }
 
 // 响应拦截
 export interface ResponseInterceptor {
-    responseInterceptor?(value: axios.AxiosResponse):Promise<axios.AxiosResponse>
+    responseInterceptor?(value: AxiosResponse): Promise<AxiosResponse>
+
     responseInterceptorCatch?: (err: any) => any
 }

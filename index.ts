@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type {AxiosInstance, InternalAxiosRequestConfig} from 'axios';
+import type {AxiosInstance, InternalAxiosRequestConfig,AxiosRequestConfig} from 'axios';
 import qs from 'qs';
 import {RequestInterceptor, ResponseInterceptor} from "./types";
 
@@ -16,11 +16,11 @@ class Request {
         !!config && this.instance(config);
     }
 
-    post(url: string, data?: object, config?: axios.AxiosRequestConfig) {
+    post(url: string, data?: object, config?: AxiosRequestConfig) {
         return this.instance.post(url, data, config);
     }
 
-    postForm(url: string, data?: object, config?: axios.AxiosRequestConfig) {
+    postForm(url: string, data?: object, config?: AxiosRequestConfig) {
         Object.assign({
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -29,14 +29,14 @@ class Request {
         return this.instance.post(url, data, config);
     }
 
-    postMulti(url: string, data?: object, config?: axios.AxiosRequestConfig) {
+    postMulti(url: string, data?: object, config?: AxiosRequestConfig) {
         Object.assign({
             headers: {'Content-Type': 'multipart/form-data'}
         }, config);
         return this.instance.post(url, data, config)
     }
 
-    get(url: string, params?: object, config?: axios.AxiosRequestConfig) {
+    get(url: string, params?: object, config?: AxiosRequestConfig) {
         if (params) {
             const query = qs.stringify(params);
             url = url + query;
