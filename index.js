@@ -1,14 +1,12 @@
 import axios from 'axios';
 import qs from 'qs';
 class Request {
-    constructor(baseUrl, config) {
-        this.instance = axios.create({
-            baseURL: baseUrl,
-        });
+    constructor(config) {
+        this.instance = axios.create(config);
         this.instance.interceptors.response.use((res) => {
             return res.data;
         });
-        !!config && this.instance(config);
+        this.instance.defaults.timeout = 2500;
     }
     post(url, data, config) {
         return this.instance.post(url, data, config);

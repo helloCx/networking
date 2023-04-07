@@ -1,19 +1,17 @@
 import axios from 'axios';
-import type {AxiosInstance, InternalAxiosRequestConfig,AxiosRequestConfig} from 'axios';
+import type {AxiosInstance, AxiosRequestConfig} from 'axios';
 import qs from 'qs';
 import {RequestInterceptor, ResponseInterceptor} from "./types";
 
 class Request {
     instance: AxiosInstance;
 
-    constructor(baseUrl: string, config?: InternalAxiosRequestConfig) {
-        this.instance = axios.create({
-            baseURL: baseUrl,
-        });
+    constructor(config?: AxiosRequestConfig) {
+        this.instance = axios.create(config);
         this.instance.interceptors.response.use((res) => {
             return res.data;
         })
-        !!config && this.instance(config);
+        this.instance.defaults.timeout = 2500;
     }
 
     post(url: string, data?: object, config?: AxiosRequestConfig) {
