@@ -4,7 +4,7 @@ import axios from "axios";
 
 // 请求拦截
 export interface RequestInterceptor {
-    requestInterceptor?(value: axios.AxiosRequestConfig): (axios.AxiosRequestConfig | Promise<axios.InternalAxiosRequestConfig>)
+    requestInterceptor?(value: axios.AxiosRequestConfig): (Promise<axios.InternalAxiosRequestConfig> | axios.AxiosRequestConfig )
     requestInterceptorCatch?(err: any) : any
 }
 
