@@ -10,7 +10,7 @@ export interface RequestInterceptor {
 
 // 响应拦截
 export interface ResponseInterceptor {
-    responseInterceptor?(value: AxiosResponse): Promise<AxiosResponse>
+    responseInterceptor?<T>(value: AxiosResponse): Promise<T>
 
     responseInterceptorCatch?: (err: any) => any
 }
