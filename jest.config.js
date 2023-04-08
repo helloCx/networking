@@ -1,8 +1,5 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
-module.defaults = {
+module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'node',
-    transform: {
-        "^.+\\.(ts|tsx|js|jsx)$": "ts-jest",
-    }
 };
