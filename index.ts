@@ -9,6 +9,7 @@ class Request {
     constructor(config?: AxiosRequestConfig) {
         this.instance = axios.create(config);
         this.instance.interceptors.response.use((res) => {
+            console.log(res);
             return res.data;
         })
         this.instance.defaults.timeout = 2500;
