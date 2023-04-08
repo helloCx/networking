@@ -4,7 +4,7 @@ import qs from 'qs';
 import {RequestInterceptor, ResponseInterceptor} from "./types/index.js";
 
 class Request {
-    instance: AxiosInstance;
+    private instance: AxiosInstance;
 
     constructor(config?: AxiosRequestConfig) {
         this.instance = axios.create(config);
