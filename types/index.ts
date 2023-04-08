@@ -1,4 +1,4 @@
-// types.ts
+// index.ts
 import type {InternalAxiosRequestConfig, AxiosResponse} from 'axios';
 
 // 请求拦截

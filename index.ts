@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type {AxiosInstance, AxiosRequestConfig} from 'axios';
 import qs from 'qs';
-import {RequestInterceptor, ResponseInterceptor} from "./types/index.js";
+import {RequestInterceptor, ResponseInterceptor} from "./types/index";
 
 class Request {
     private instance: AxiosInstance;
@@ -9,7 +9,6 @@ class Request {
     constructor(config?: AxiosRequestConfig) {
         this.instance = axios.create(config);
         this.instance.interceptors.response.use((res) => {
-            console.log(res);
             return res.data;
         })
         this.instance.defaults.timeout = 2500;
