@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Request = void 0;
 const axios_1 = __importDefault(require("axios"));
 const qs_1 = __importDefault(require("qs"));
 class Request {
@@ -44,4 +45,4 @@ class Request {
         return this.instance.interceptors.response.use(interceptor.responseInterceptor, interceptor.responseInterceptorCatch);
     }
 }
-exports.default = Request;
+exports.Request = Request;

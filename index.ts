@@ -51,4 +51,6 @@ class Request {
     }
 }
 
-export default Request;
+export {
+    Request
+};
