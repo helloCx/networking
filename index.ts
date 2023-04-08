@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type {AxiosInstance, AxiosRequestConfig} from 'axios';
 import qs from 'qs';
-import {RequestInterceptor, ResponseInterceptor} from "./types/index";
+import {RequestInterceptor, ResponseInterceptor} from "./types";
 
 class Request {
     private instance: AxiosInstance;

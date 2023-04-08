@@ -1,8 +1,13 @@
-import axios from 'axios';
-import qs from 'qs';
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const axios_1 = __importDefault(require("axios"));
+const qs_1 = __importDefault(require("qs"));
 class Request {
     constructor(config) {
-        this.instance = axios.create(config);
+        this.instance = axios_1.default.create(config);
         this.instance.interceptors.response.use((res) => {
             return res.data;
         });
@@ -27,7 +32,7 @@ class Request {
     }
     get(url, params, config) {
         if (params) {
-            const query = qs.stringify(params);
+            const query = qs_1.default.stringify(params);
             url = url + query;
         }
         return this.instance.get(url, config);
@@ -39,4 +44,4 @@ class Request {
         return this.instance.interceptors.response.use(interceptor.responseInterceptor, interceptor.responseInterceptorCatch);
     }
 }
-export default Request;
+exports.default = Request;
