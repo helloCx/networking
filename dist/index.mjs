@@ -1,16 +1,18 @@
-"use strict";
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __commonJS = (cb, mod) => function __require() {
+var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
+  get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
+}) : x)(function(x) {
+  if (typeof require !== "undefined")
+    return require.apply(this, arguments);
+  throw new Error('Dynamic require of "' + x + '" is not supported');
+});
+var __commonJS = (cb, mod) => function __require2() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
-};
-var __export = (target, all) => {
-  for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
 };
 var __copyProps = (to, from, except, desc) => {
   if (from && typeof from === "object" || typeof from === "function") {
@@ -28,13 +30,12 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
-var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // node_modules/.pnpm/has-symbols@1.0.3/node_modules/has-symbols/shams.js
 var require_shams = __commonJS({
-  "node_modules/.pnpm/has-symbols@1.0.3/node_modules/has-symbols/shams.js"(exports, module2) {
+  "node_modules/.pnpm/has-symbols@1.0.3/node_modules/has-symbols/shams.js"(exports, module) {
     "use strict";
-    module2.exports = function hasSymbols() {
+    module.exports = function hasSymbols() {
       if (typeof Symbol !== "function" || typeof Object.getOwnPropertySymbols !== "function") {
         return false;
       }
@@ -84,11 +85,11 @@ var require_shams = __commonJS({
 
 // node_modules/.pnpm/has-symbols@1.0.3/node_modules/has-symbols/index.js
 var require_has_symbols = __commonJS({
-  "node_modules/.pnpm/has-symbols@1.0.3/node_modules/has-symbols/index.js"(exports, module2) {
+  "node_modules/.pnpm/has-symbols@1.0.3/node_modules/has-symbols/index.js"(exports, module) {
     "use strict";
     var origSymbol = typeof Symbol !== "undefined" && Symbol;
     var hasSymbolSham = require_shams();
-    module2.exports = function hasNativeSymbols() {
+    module.exports = function hasNativeSymbols() {
       if (typeof origSymbol !== "function") {
         return false;
       }
@@ -108,13 +109,13 @@ var require_has_symbols = __commonJS({
 
 // node_modules/.pnpm/function-bind@1.1.1/node_modules/function-bind/implementation.js
 var require_implementation = __commonJS({
-  "node_modules/.pnpm/function-bind@1.1.1/node_modules/function-bind/implementation.js"(exports, module2) {
+  "node_modules/.pnpm/function-bind@1.1.1/node_modules/function-bind/implementation.js"(exports, module) {
     "use strict";
     var ERROR_MESSAGE = "Function.prototype.bind called on incompatible ";
     var slice = Array.prototype.slice;
     var toStr = Object.prototype.toString;
     var funcType = "[object Function]";
-    module2.exports = function bind(that) {
+    module.exports = function bind(that) {
       var target = this;
       if (typeof target !== "function" || toStr.call(target) !== funcType) {
         throw new TypeError(ERROR_MESSAGE + target);
@@ -158,25 +159,25 @@ var require_implementation = __commonJS({
 
 // node_modules/.pnpm/function-bind@1.1.1/node_modules/function-bind/index.js
 var require_function_bind = __commonJS({
-  "node_modules/.pnpm/function-bind@1.1.1/node_modules/function-bind/index.js"(exports, module2) {
+  "node_modules/.pnpm/function-bind@1.1.1/node_modules/function-bind/index.js"(exports, module) {
     "use strict";
     var implementation = require_implementation();
-    module2.exports = Function.prototype.bind || implementation;
+    module.exports = Function.prototype.bind || implementation;
   }
 });
 
 // node_modules/.pnpm/has@1.0.3/node_modules/has/src/index.js
 var require_src = __commonJS({
-  "node_modules/.pnpm/has@1.0.3/node_modules/has/src/index.js"(exports, module2) {
+  "node_modules/.pnpm/has@1.0.3/node_modules/has/src/index.js"(exports, module) {
     "use strict";
     var bind = require_function_bind();
-    module2.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
+    module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
   }
 });
 
 // node_modules/.pnpm/get-intrinsic@1.2.0/node_modules/get-intrinsic/index.js
 var require_get_intrinsic = __commonJS({
-  "node_modules/.pnpm/get-intrinsic@1.2.0/node_modules/get-intrinsic/index.js"(exports, module2) {
+  "node_modules/.pnpm/get-intrinsic@1.2.0/node_modules/get-intrinsic/index.js"(exports, module) {
     "use strict";
     var undefined2;
     var $SyntaxError = SyntaxError;
@@ -414,7 +415,7 @@ var require_get_intrinsic = __commonJS({
       }
       throw new $SyntaxError("intrinsic " + name + " does not exist!");
     };
-    module2.exports = function GetIntrinsic(name, allowMissing) {
+    module.exports = function GetIntrinsic(name, allowMissing) {
       if (typeof name !== "string" || name.length === 0) {
         throw new $TypeError("intrinsic name must be a non-empty string");
       }
@@ -480,7 +481,7 @@ var require_get_intrinsic = __commonJS({
 
 // node_modules/.pnpm/call-bind@1.0.2/node_modules/call-bind/index.js
 var require_call_bind = __commonJS({
-  "node_modules/.pnpm/call-bind@1.0.2/node_modules/call-bind/index.js"(exports, module2) {
+  "node_modules/.pnpm/call-bind@1.0.2/node_modules/call-bind/index.js"(exports, module) {
     "use strict";
     var bind = require_function_bind();
     var GetIntrinsic = require_get_intrinsic();
@@ -497,7 +498,7 @@ var require_call_bind = __commonJS({
         $defineProperty = null;
       }
     }
-    module2.exports = function callBind(originalFunction) {
+    module.exports = function callBind(originalFunction) {
       var func = $reflectApply(bind, $call, arguments);
       if ($gOPD && $defineProperty) {
         var desc = $gOPD(func, "length");
@@ -515,21 +516,21 @@ var require_call_bind = __commonJS({
       return $reflectApply(bind, $apply, arguments);
     };
     if ($defineProperty) {
-      $defineProperty(module2.exports, "apply", { value: applyBind });
+      $defineProperty(module.exports, "apply", { value: applyBind });
     } else {
-      module2.exports.apply = applyBind;
+      module.exports.apply = applyBind;
     }
   }
 });
 
 // node_modules/.pnpm/call-bind@1.0.2/node_modules/call-bind/callBound.js
 var require_callBound = __commonJS({
-  "node_modules/.pnpm/call-bind@1.0.2/node_modules/call-bind/callBound.js"(exports, module2) {
+  "node_modules/.pnpm/call-bind@1.0.2/node_modules/call-bind/callBound.js"(exports, module) {
     "use strict";
     var GetIntrinsic = require_get_intrinsic();
     var callBind = require_call_bind();
     var $indexOf = callBind(GetIntrinsic("String.prototype.indexOf"));
-    module2.exports = function callBoundIntrinsic(name, allowMissing) {
+    module.exports = function callBoundIntrinsic(name, allowMissing) {
       var intrinsic = GetIntrinsic(name, !!allowMissing);
       if (typeof intrinsic === "function" && $indexOf(name, ".prototype.") > -1) {
         return callBind(intrinsic);
@@ -541,14 +542,14 @@ var require_callBound = __commonJS({
 
 // node_modules/.pnpm/object-inspect@1.12.3/node_modules/object-inspect/util.inspect.js
 var require_util_inspect = __commonJS({
-  "node_modules/.pnpm/object-inspect@1.12.3/node_modules/object-inspect/util.inspect.js"(exports, module2) {
-    module2.exports = require("util").inspect;
+  "node_modules/.pnpm/object-inspect@1.12.3/node_modules/object-inspect/util.inspect.js"(exports, module) {
+    module.exports = __require("util").inspect;
   }
 });
 
 // node_modules/.pnpm/object-inspect@1.12.3/node_modules/object-inspect/index.js
 var require_object_inspect = __commonJS({
-  "node_modules/.pnpm/object-inspect@1.12.3/node_modules/object-inspect/index.js"(exports, module2) {
+  "node_modules/.pnpm/object-inspect@1.12.3/node_modules/object-inspect/index.js"(exports, module) {
     var hasMap = typeof Map === "function" && Map.prototype;
     var mapSizeDescriptor = Object.getOwnPropertyDescriptor && hasMap ? Object.getOwnPropertyDescriptor(Map.prototype, "size") : null;
     var mapSize = hasMap && mapSizeDescriptor && typeof mapSizeDescriptor.get === "function" ? mapSizeDescriptor.get : null;
@@ -603,7 +604,7 @@ var require_object_inspect = __commonJS({
     var utilInspect = require_util_inspect();
     var inspectCustom = utilInspect.custom;
     var inspectSymbol = isSymbol(inspectCustom) ? inspectCustom : null;
-    module2.exports = function inspect_(obj, options, depth, seen) {
+    module.exports = function inspect_(obj, options, depth, seen) {
       var opts = options || {};
       if (has(opts, "quoteStyle") && (opts.quoteStyle !== "single" && opts.quoteStyle !== "double")) {
         throw new TypeError('option "quoteStyle" must be "single" or "double"');
@@ -1057,7 +1058,7 @@ var require_object_inspect = __commonJS({
 
 // node_modules/.pnpm/side-channel@1.0.4/node_modules/side-channel/index.js
 var require_side_channel = __commonJS({
-  "node_modules/.pnpm/side-channel@1.0.4/node_modules/side-channel/index.js"(exports, module2) {
+  "node_modules/.pnpm/side-channel@1.0.4/node_modules/side-channel/index.js"(exports, module) {
     "use strict";
     var GetIntrinsic = require_get_intrinsic();
     var callBound = require_callBound();
@@ -1101,7 +1102,7 @@ var require_side_channel = __commonJS({
     var listHas = function(objects, key) {
       return !!listGetNode(objects, key);
     };
-    module2.exports = function getSideChannel() {
+    module.exports = function getSideChannel() {
       var $wm;
       var $m;
       var $o;
@@ -1168,7 +1169,7 @@ var require_side_channel = __commonJS({
 
 // node_modules/.pnpm/qs@6.11.1/node_modules/qs/lib/formats.js
 var require_formats = __commonJS({
-  "node_modules/.pnpm/qs@6.11.1/node_modules/qs/lib/formats.js"(exports, module2) {
+  "node_modules/.pnpm/qs@6.11.1/node_modules/qs/lib/formats.js"(exports, module) {
     "use strict";
     var replace = String.prototype.replace;
     var percentTwenties = /%20/g;
@@ -1176,7 +1177,7 @@ var require_formats = __commonJS({
       RFC1738: "RFC1738",
       RFC3986: "RFC3986"
     };
-    module2.exports = {
+    module.exports = {
       "default": Format.RFC3986,
       formatters: {
         RFC1738: function(value) {
@@ -1194,7 +1195,7 @@ var require_formats = __commonJS({
 
 // node_modules/.pnpm/qs@6.11.1/node_modules/qs/lib/utils.js
 var require_utils = __commonJS({
-  "node_modules/.pnpm/qs@6.11.1/node_modules/qs/lib/utils.js"(exports, module2) {
+  "node_modules/.pnpm/qs@6.11.1/node_modules/qs/lib/utils.js"(exports, module) {
     "use strict";
     var formats = require_formats();
     var has = Object.prototype.hasOwnProperty;
@@ -1376,7 +1377,7 @@ var require_utils = __commonJS({
       }
       return fn(val);
     };
-    module2.exports = {
+    module.exports = {
       arrayToObject,
       assign,
       combine,
@@ -1393,7 +1394,7 @@ var require_utils = __commonJS({
 
 // node_modules/.pnpm/qs@6.11.1/node_modules/qs/lib/stringify.js
 var require_stringify = __commonJS({
-  "node_modules/.pnpm/qs@6.11.1/node_modules/qs/lib/stringify.js"(exports, module2) {
+  "node_modules/.pnpm/qs@6.11.1/node_modules/qs/lib/stringify.js"(exports, module) {
     "use strict";
     var getSideChannel = require_side_channel();
     var utils = require_utils();
@@ -1574,7 +1575,7 @@ var require_stringify = __commonJS({
         strictNullHandling: typeof opts.strictNullHandling === "boolean" ? opts.strictNullHandling : defaults.strictNullHandling
       };
     };
-    module2.exports = function(object, opts) {
+    module.exports = function(object, opts) {
       var obj = object;
       var options = normalizeStringifyOptions(opts);
       var objKeys;
@@ -1650,7 +1651,7 @@ var require_stringify = __commonJS({
 
 // node_modules/.pnpm/qs@6.11.1/node_modules/qs/lib/parse.js
 var require_parse = __commonJS({
-  "node_modules/.pnpm/qs@6.11.1/node_modules/qs/lib/parse.js"(exports, module2) {
+  "node_modules/.pnpm/qs@6.11.1/node_modules/qs/lib/parse.js"(exports, module) {
     "use strict";
     var utils = require_utils();
     var has = Object.prototype.hasOwnProperty;
@@ -1829,7 +1830,7 @@ var require_parse = __commonJS({
         strictNullHandling: typeof opts.strictNullHandling === "boolean" ? opts.strictNullHandling : defaults.strictNullHandling
       };
     };
-    module2.exports = function(str, opts) {
+    module.exports = function(str, opts) {
       var options = normalizeParseOptions(opts);
       if (str === "" || str === null || typeof str === "undefined") {
         return options.plainObjects ? /* @__PURE__ */ Object.create(null) : {};
@@ -1852,12 +1853,12 @@ var require_parse = __commonJS({
 
 // node_modules/.pnpm/qs@6.11.1/node_modules/qs/lib/index.js
 var require_lib = __commonJS({
-  "node_modules/.pnpm/qs@6.11.1/node_modules/qs/lib/index.js"(exports, module2) {
+  "node_modules/.pnpm/qs@6.11.1/node_modules/qs/lib/index.js"(exports, module) {
     "use strict";
     var stringify = require_stringify();
     var parse = require_parse();
     var formats = require_formats();
-    module2.exports = {
+    module.exports = {
       formats,
       parse,
       stringify
@@ -1866,16 +1867,11 @@ var require_lib = __commonJS({
 });
 
 // index.ts
-var networking_exports = {};
-__export(networking_exports, {
-  Request: () => Request
-});
-module.exports = __toCommonJS(networking_exports);
-var import_axios = __toESM(require("axios"));
 var import_qs = __toESM(require_lib());
+import axios from "axios";
 var Request = class {
   constructor(config) {
-    this.instance = import_axios.default.create(config);
+    this.instance = axios.create(config);
     this.instance.interceptors.response.use((res) => {
       return res.data;
     });
@@ -1912,7 +1908,6 @@ var Request = class {
     return this.instance.interceptors.response.use(interceptor.responseInterceptor, interceptor.responseInterceptorCatch);
   }
 };
-// Annotate the CommonJS export names for ESM import in node:
-0 && (module.exports = {
+export {
   Request
-});
+};
