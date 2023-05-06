@@ -18,6 +18,15 @@ class Request {
         return this.instance.post(url, data, config);
     }
 
+    postJSON(url: string, data?: object, config?: AxiosRequestConfig){
+        Object.assign({
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }, config);
+        return this.instance.post(url,data,config)
+    }
+
     postForm(url: string, data?: object, config?: AxiosRequestConfig) {
         Object.assign({
             headers: {
