@@ -1,6 +1,6 @@
 {
   "name": "networking-ts",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
@@ -19,13 +19,11 @@
   "dependencies": {
     "@types/axios": "^0.14.0",
     "axios": "^1.3.4",
-    "qs": "^6.11.1"
+    "qs": "^5.2.1"
   },
   "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/inedx.js",
-      "types": "./dist/inedx.d.ts"
-    }
+    "import": "./dist/index.mjs",
+    "require": "./dist/inedx.js",
+    "types": "./dist/inedx.d.ts"
   }
 }
