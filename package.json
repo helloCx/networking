@@ -1,11 +1,11 @@
 {
   "name": "networking-ts",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "build": "tsup index.ts --format cjs,esm"
+    "build": "tsup index.ts --format cjs,esm --dts"
   },
   "devDependencies": {
     "@types/jest": "^29.5.0",
@@ -24,7 +24,7 @@
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/inedx.cjs",
+      "require": "./dist/inedx.js",
       "types": "./dist/inedx.d.ts"
     }
   }
